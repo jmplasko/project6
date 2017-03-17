@@ -12,7 +12,6 @@ def main():
 
    loss = []
    new_file = open("decode.ppm","w")
-   new_file.write("P3")
 
    for val in the_file:
       okay = val.split(" ")
@@ -21,7 +20,11 @@ def main():
 
    loss = groups_of_3(loss)
 
-   for pix in loss:
+   new_file.write("{:s}\n".format(loss[0][0]))
+   new_file.write("{:s} {:s}\n".format(loss[0][1],loss[0][2]))
+
+
+   for pix in loss[1:len(loss)]:
       red = int(pix[0])*10
       if red > 255:
          red = 255
@@ -36,7 +39,7 @@ def groups_of_3(values):
    inside_list = []
    new_list = []
    count = 0
-   for val in range(1,len(values)):
+   for val in range(len(values)):
       inside_list.append(values[val])
       count += 1
       if val == len(values) - 1:
