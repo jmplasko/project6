@@ -28,6 +28,8 @@ def main():
 
    loss_2 = groups_of_3(loss)
 
+   print(len(loss_2))
+
    for okay in range(len(loss_2)):
       row = okay//int(loss[1])
       column = okay%int(loss[1])
