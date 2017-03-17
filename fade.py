@@ -28,12 +28,11 @@ def main():
 
    loss_2 = groups_of_3(loss)
 
-   print(len(loss_2))
-
    for okay in range(len(loss_2)):
       row = okay//int(loss[1])
       column = okay%int(loss[1])
-      scale = (r - (math.sqrt(abs(y-row)**2 + abs(x-column)**2))) / r
+      scale = abs((r - (math.sqrt(abs(y-row)**2 + abs(x-column)**2))) / r)
+      print(scale)
       if scale < .2:
          scale = .2
       red = int(loss_2[okay][0]) * scale
