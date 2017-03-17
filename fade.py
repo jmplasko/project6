@@ -37,7 +37,7 @@ def main():
       red = int(loss_2[okay][0]) * scale
       green = int(loss_2[okay][1]) * scale
       blue = int(loss_2[okay][2]) * scale
-      new_file.write("{:f} {:f} {:f}\n".format(red,green,blue))
+      new_file.write("{:f} {:f} {:f}\n".format(int(red),int(green),int(blue)))
 
 def groups_of_3(values):
    inside_list = []
