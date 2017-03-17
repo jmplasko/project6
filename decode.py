@@ -36,8 +36,6 @@ def main():
          new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
       counter += 1
 
-
-
 def groups_of_3(values):
    inside_list = []
    new_list = []
@@ -52,8 +50,6 @@ def groups_of_3(values):
          new_list.append(inside_list)
          inside_list = []
          count = 0
-
-
 
 
 if __name__ == '__main__':
