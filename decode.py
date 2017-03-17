@@ -18,20 +18,23 @@ def main():
       for value in okay:
          loss.append(value.rstrip())
 
+   new_file.write("{:s}\n".format(loss[0]))
+   new_file.write("{:s} {:s}\n".format(loss[1],loss[2]))
+   new_file.write("{:s}\n".format(loss[3]))
+
    loss = groups_of_3(loss)
 
-   new_file.write("{:s}\n".format(loss[0][0]))
-   new_file.write("{:s} {:s}\n".format(loss[0][1],loss[0][2]))
+   counter = 0
 
-
-   for pix in loss[1:len(loss)]:
-      red = int(pix[0])*10
-      if red > 255:
-         red = 255
-      blue = red
-      green = red
-      new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
-
+   for pix in loss:
+      if counter != 0:
+         red = int(pix[0])*10
+         if red > 255:
+            red = 255
+         blue = red
+         green = red
+         new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
+      counter += 1
 
 
 
@@ -39,7 +42,7 @@ def groups_of_3(values):
    inside_list = []
    new_list = []
    count = 0
-   for val in range(len(values)):
+   for val in range(4,len(values)):
       inside_list.append(values[val])
       count += 1
       if val == len(values) - 1:
