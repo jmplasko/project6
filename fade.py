@@ -31,14 +31,14 @@ def main():
    for okay in range(len(loss_2)):
       row = okay//int(loss[1])
       column = okay%int(loss[1])
-      scale = abs((r - (math.sqrt(abs(y-row)**2 + abs(x-column)**2))) / r)
-      print(scale)
+      scale = (r - (math.sqrt(abs(y-row)**2 + abs(x-column)**2))) / r
       if scale < .2:
          scale = .2
+      print(scale)
       red = int(loss_2[okay][0]) * scale
       green = int(loss_2[okay][1]) * scale
       blue = int(loss_2[okay][2]) * scale
-      new_file.write("{:f} {:f} {:f}\n".format(int(red),int(green),int(blue)))
+      new_file.write("{:d} {:d} {:d}\n".format(int(red),int(green),int(blue)))
 
 def groups_of_3(values):
    inside_list = []
