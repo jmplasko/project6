@@ -34,7 +34,6 @@ def main():
       scale = (r - (math.sqrt(abs(y-row)**2 + abs(x-column)**2))) / r
       if scale < .2:
          scale = .2
-      print(scale)
       red = int(loss_2[okay][0]) * scale
       green = int(loss_2[okay][1]) * scale
       blue = int(loss_2[okay][2]) * scale
