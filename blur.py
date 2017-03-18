@@ -32,8 +32,6 @@ def main():
 
    for okay in range(len(ll)):
       lol = find_reach_pixel(okay,loss_2,reach,int(loss[1]))
-      print(okay)
-      print(lol)
       new_pix = find_average(lol)
       new_file.write("{:d} {:d} {:d}\n".format(int(new_pix[0]),int(new_pix[1]),int(new_pix[2])))
 
