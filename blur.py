@@ -71,8 +71,8 @@ def find_reach_pixel(pixel,vals,reach,width):
    column = pixel%width
    start_r = row - reach
    start_c = column - reach
-   finish_r = row + reach
-   finish_c = column + reach
+   finish_r = row + reach +1
+   finish_c = column + reach +1
 
    if start_r < 0:
       start_r = 0
