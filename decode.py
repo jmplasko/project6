@@ -10,31 +10,49 @@ def main():
       print("Unable to open {:s}".format(sys.argv[1]))
       sys.exit(1) 
 
-   loss = []
+#   loss = []
    new_file = open("decode.ppm","w")
 
-   for val in the_file:
-      okay = val.split(" ")
-      for value in okay:
-         loss.append(value.rstrip())
+#   for val in the_file:
+#      okay = val.split(" ")
+#      for value in okay:
+#         loss.append(value.rstrip())
 
-   new_file.write("{:s}\n".format(loss[0]))
-   new_file.write("{:s} {:s}\n".format(loss[1],loss[2]))
-   new_file.write("{:s}\n".format(loss[3]))
+#   new_file.write("{:s}\n".format(loss[0]))
+#   new_file.write("{:s} {:s}\n".format(loss[1],loss[2]))
+#   new_file.write("{:s}\n".format(loss[3]))
 
-   loss = groups_of_3(loss)
+#   loss = groups_of_3(loss)
 
    counter = 0
+   pixel = []
 
-   for pix in loss:
-      if counter != 0:
-         red = int(pix[0])*10
-         if red > 255:
-            red = 255
-         blue = red
-         green = red
-         new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
+   for line in the_file:
+      if counter < 4:
+         new_file.write("{:s}".format(line))
+      if counter > 3:
+         val = line.split(" ")
+         for num in val:
+            pixel.append(num)
+            if len(pixel) == 3:
+               red = int(pixel[0])*10
+               if red > 255:
+                  red = 255
+               blue = red
+               green = red
+               new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
+               pixel = []
       counter += 1
+
+#   for pix in loss:
+#      if counter != 0:
+#         red = int(pix[0])*10
+#         if red > 255:
+#            red = 255
+#         blue = red
+#         green = red
+#         new_file.write("{:d} {:d} {:d}\n".format(red,green,blue))
+#      counter += 1
 
 def groups_of_3(values):
    inside_list = []
