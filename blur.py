@@ -78,7 +78,6 @@ def find_reach_pixel(pixel,vals,reach,width):
       start_r = 0
    if finish_r > len(vals):
       finish_r = len(vals)
-
    if start_c < 0:
       start_c = 0
    if finish_c > width:
