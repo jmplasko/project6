@@ -28,9 +28,9 @@ def main():
    pixel = []
 
    for line in the_file:
-      if counter < 4:
+      if counter < 3:
          new_file.write("{:s}".format(line))
-      if counter > 3:
+      else:
          val = line.split(" ")
          for num in val:
             pixel.append(num)
